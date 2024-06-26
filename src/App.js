@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { Provider } from "react-redux";
+import { QueryClientProvider } from "@tanstack/react-query";
+import store from "./store";
+import queryClient from "./queryClient";
+import AppRouter from "./router";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <AppRouter />
+      </QueryClientProvider>
+    </Provider>
   );
 }
 
