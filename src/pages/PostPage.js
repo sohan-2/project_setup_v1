@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { usePostExampleData } from "../hooks/useExampleHook";
+import CommonButton from "../components/common/Button";
 
 function PostPage() {
   const [postData, setPostData] = useState({
@@ -40,7 +41,8 @@ function PostPage() {
         <label>Body:</label>
         <textarea name="body" value={postData.body} onChange={handleChange} />
       </div>
-      <button onClick={handlePostData}>Post Data</button>
+      <CommonButton onClick={handlePostData} />
+
       {mutation.isSuccess && (
         <pre>{JSON.stringify(mutation.data, null, 2)}</pre>
       )}
